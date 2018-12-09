@@ -112,20 +112,14 @@ class Adigraph:
             size=1/self._row_size
         )
 
-    def _padding(self, a: List, b: List)->List:
-        delta = len(a)-len(b)
-        if delta > 0:
-            return b+[None, ]*delta
-        return b
-
     def _figure(self, adigraphs: List[str], captions: List[str], labels: List[str])->str:
         """Return set of subfigures."""
         return self._figure_placeholder.format(
             content="\n".join([
                 self._subfigure(i, a, c, l) for i, (a, c, l) in enumerate(zip(
                     adigraphs,
-                    self._padding(adigraphs, captions),
-                    self._padding(adigraphs, labels)
+                    captions,
+                    labels
                 ), 1)
             ]),
             caption=self._get_caption(self._caption),
