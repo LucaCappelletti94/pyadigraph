@@ -1,6 +1,20 @@
 
 \.vscode/
 
-test/__pycache__/
+__pycache__
 
-tests/__pycache__/
+*.aux
+
+*.fdb_latexmk
+
+*.fls
+
+*.log
+
+*.pdf
+
+*.gz
+
+\.coverage
+
+\.cache/

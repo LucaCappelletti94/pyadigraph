@@ -16,8 +16,7 @@ def tests_adigraph():
         edges_color_fallback="gray!90",
         sub_caption="My adigraph number {i} of {n}",
         sub_label="adigraph_{i}_{n}",
-        caption="A graph generated with python and latex.",
-        label="pyadigraph_example"
+        caption="A graph generated with python and latex."
     )
 
     A.add_graph(
@@ -38,7 +37,7 @@ def tests_adigraph():
             7: 'purple!90'
         })
 
-    A.save("tests/result.tex")
+    A.save("tests/result.tex", document=True)
     result = filecmp.cmp('tests/expected.tex', 'tests/result.tex')
-    os.remove("tests/result.tex")
+    # os.remove("tests/result.tex")
     assert result
