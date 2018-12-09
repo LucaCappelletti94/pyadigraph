@@ -26,10 +26,10 @@ Example
     A.add_graph(
         nx.bipartite.random_graph(4, 4, 1),
         vertices_color={
-            0: 'green!90',
-            1: 'green!90',
-            4: 'purple!90',
-            7: 'purple!90'
+            0: 'red!90',
+            1: 'red!90',
+            4: 'cyan!90',
+            7: 'cyan!90'
         })
 
     A.save("test/result.tex", document=True)
