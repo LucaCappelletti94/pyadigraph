@@ -1,7 +1,7 @@
 from pyadigraph import Adigraph
+import networkx as nx
 import numpy as np
 import random
-import networkx as nx
 import filecmp
 import os
 

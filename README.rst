@@ -13,6 +13,9 @@ Example
 
 .. code:: python
 
+    from pyadigraph import Adigraph
+    import networkx as nx
+
     A = Adigraph(
         vertices_color_fallback="gray!90",
         edges_color_fallback="gray!90",
