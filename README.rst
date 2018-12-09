@@ -81,5 +81,7 @@ Which when generated results in:
 
 And when you compile this in your document you get:
 
+|example|
+
 .. _`Adigraph (1.7.0+)`: https://github.com/LucaCappelletti94/adigraph
 .. |example| image:: https://github.com/LucaCappelletti94/pyadigraph/blob/master/example.png?raw=true
