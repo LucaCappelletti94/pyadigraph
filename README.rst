@@ -7,6 +7,10 @@ Pyadigraph turns your networkx into Adigraph latex package.
 
 The Latex generated with this package requires `Adigraph (1.7.0+)`_ and the `subfigures` package.
 
+
+Example
+---------------
+
 .. code:: python
     A = Adigraph(
         vertices_color_fallback="gray!90",
@@ -28,6 +32,8 @@ The Latex generated with this package requires `Adigraph (1.7.0+)`_ and the `sub
         })
 
     A.save("test/result.tex", document=True)
+
+Which when generated results in:
 
 .. code:: latex
 
@@ -72,4 +78,7 @@ The Latex generated with this package requires `Adigraph (1.7.0+)`_ and the `sub
     \end{figure}
     \end{document}
 
+And when you compile this in your document you get:
+
 .. _`Adigraph (1.7.0+)`: https://github.com/LucaCappelletti94/adigraph
+.. |example| image:: https://github.com/LucaCappelletti94/pyadigraph/blob/master/example.png?raw=true
