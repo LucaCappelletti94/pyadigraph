@@ -6,7 +6,7 @@ import filecmp
 import os
 
 
-def test_adigraph():
+def tests_adigraph():
     seed = 7
     random.seed(seed)
     np.random.seed(seed)
@@ -38,7 +38,7 @@ def test_adigraph():
             7: 'purple!90'
         })
 
-    A.save("test/result.tex")
-    result = filecmp.cmp('test/expected.tex', 'test/result.tex')
-    os.remove("test/result.tex")
+    A.save("tests/result.tex")
+    result = filecmp.cmp('tests/expected.tex', 'tests/result.tex')
+    os.remove("tests/result.tex")
     assert result
