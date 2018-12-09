@@ -12,6 +12,7 @@ Example
 ---------------
 
 .. code:: python
+
     A = Adigraph(
         vertices_color_fallback="gray!90",
         edges_color_fallback="gray!90",
