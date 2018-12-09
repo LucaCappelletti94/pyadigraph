@@ -43,7 +43,7 @@ class Adigraph:
             label: str="", label for figures
         """
         self._load_placeholders()
-        self._Gs = []
+        self._graphs = []
         self._row_size, self._default_vertices_color_fallback, self._default_edges_color_fallback, self._default_layout, self._default_weights, self._default_style, self._default_vertices_color, self._default_edges_color, self._default_vertices_width, self._default_edges_width, self._default_vertices_label, self._default_edges_label, self._default_caption, self._default_label, self._caption, self._label, self._default_directed = row_size, vertices_color_fallback, edges_color_fallback, layout, weights, style, vertices_color, edges_color, vertices_width, edges_width, vertices_label, edges_label, sub_caption, sub_label, caption, label, directed
         if weights is None:
             self._default_weights = {}
@@ -106,8 +106,9 @@ class Adigraph:
         """Return subfigure."""
         return self._subfigure_placeholder.format(
             content=adigraph,
-            caption=self._get_caption(caption.format(i=i, n=len(self._Gs))),
-            label=self._get_label(label.format(i=i, n=len(self._Gs))),
+            caption=self._get_caption(
+                caption.format(i=i, n=len(self._graphs))),
+            label=self._get_label(label.format(i=i, n=len(self._graphs))),
             size=1/self._row_size
         )
 
@@ -184,7 +185,7 @@ class Adigraph:
 
     def _adigraph(
         self,
-        G: nx.Graph,
+        graph: nx.Graph,
         layout: Dict[str, Tuple[float, float]],
         weights: Dict[str, float],
         style: str,
@@ -201,8 +202,8 @@ class Adigraph:
         """Return given graph in adigraph syntax."""
         return "\t\\NewAdigraph{{myAdigraph}}{{{vertices}\n\t\t}}{{{edges}\n\t\t}}[{style}]\n\t\t\\myAdigraph{{}}".format(
             vertices=self._vertices(
-                G.nodes, layout, vertices_color, vertices_color_fallback, vertices_width, vertices_label),
-            edges=self._edges(G.edges, weights, edges_color, edges_color_fallback,
+                graph.nodes, layout, vertices_color, vertices_color_fallback, vertices_width, vertices_label),
+            edges=self._edges(graph.edges, weights, edges_color, edges_color_fallback,
                               edges_width, edges_label, directed),
             style=style
         )
@@ -214,7 +215,7 @@ class Adigraph:
 
     def add_graph(
             self,
-            G: nx.Graph,
+            graph: nx.Graph,
             vertices_color_fallback: str="",
             edges_color_fallback: str="",
             layout: Dict[str, Tuple[float, float]]=None,
@@ -230,7 +231,7 @@ class Adigraph:
             caption: str="",
             label: str="")->str:
         """Add given graph to adigraph.
-            G: nx.Graph, graph to be added
+            graph: nx.Graph, graph to be added
             vertices_color_fallback: str="",  color to use when vertex color is not given.
             edges_color_fallback: str="", color to use when edge color is not given.
             layout: Dict[str, Tuple[float, float]]=None, layout for given graph. If None, default one is used. If default is None too, spring_layout is used.
@@ -247,15 +248,13 @@ class Adigraph:
             label: str="" label for given graph. If None, default one is used.
         """
         if layout is None and self._default_layout is None:
-            layout = nx.spring_layout(G, iterations=10000)
-        if G is None:
-            raise TypeError("Given graph `G` is None.")
+            layout = nx.spring_layout(graph, iterations=10000)
         [
             self._update_lists(arg, default, arg_list) for arg, default, arg_list in (
                 (
-                    G,
+                    graph,
                     None,
-                    self._Gs
+                    self._graphs
                 ),
                 (
                     vertices_color_fallback,
@@ -335,7 +334,7 @@ class Adigraph:
         return self._figure(
             [
                 self._adigraph(*G) for G in zip(
-                    self._Gs,
+                    self._graphs,
                     self._layouts,
                     self._weights,
                     self._styles,

@@ -39,5 +39,5 @@ def tests_adigraph():
 
     A.save("tests/result.tex", document=True)
     result = filecmp.cmp('tests/expected.tex', 'tests/result.tex')
-    # os.remove("tests/result.tex")
+    os.remove("tests/result.tex")
     assert result
