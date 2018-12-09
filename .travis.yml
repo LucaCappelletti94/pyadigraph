@@ -24,7 +24,7 @@ after_script:
 script:
 - rm -rf .coverage
 - coverage erase
-- pytest --cov=tinycrawler --cov-report xml:coverage.xml 
+- pytest --cov=pyadigraph --cov-report xml:coverage.xml 
 #- coverage combine --append
 - coverage report
 - coverage xml
