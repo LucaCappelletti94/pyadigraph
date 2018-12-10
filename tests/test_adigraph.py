@@ -30,6 +30,7 @@ def tests_adigraph():
     )
     A.add_graph(
         nx.bipartite.random_graph(4, 4, 1),
+        directed=False,
         vertices_color={
             0: 'green!90',
             1: 'green!90',
