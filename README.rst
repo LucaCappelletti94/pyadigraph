@@ -10,6 +10,13 @@ Pyadigraph turns your networkx into Adigraph latex package.
 
 The Latex generated with this package requires `Adigraph (1.7.0+)`_ and the `subfigures` package.
 
+Installation
+---------------
+After having installed Adigraph, you can run:
+
+.. code:: bash
+
+    pip installed pyadigraph
 
 Example
 ---------------
