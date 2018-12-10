@@ -3,6 +3,9 @@
 
 PyAdigraph
 ============
+
+|travis| |sonar_quality| |sonar_maintainability| |sonar_coverage| |code_climate_maintainability| |pip|
+
 Pyadigraph turns your networkx into Adigraph latex package. 
 
 The Latex generated with this package requires `Adigraph (1.7.0+)`_ and the `subfigures` package.
@@ -88,3 +91,22 @@ And when you compile this in your document you get:
 
 .. _`Adigraph (1.7.0+)`: https://github.com/LucaCappelletti94/adigraph
 .. |example| image:: https://github.com/LucaCappelletti94/pyadigraph/blob/master/example.png?raw=true
+
+.. |travis| image:: https://travis-ci.org/LucaCappelletti94/pyadigraph.png
+   :target: https://travis-ci.org/LucaCappelletti94/pyadigraph
+
+.. |sonar_quality| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_pyadigraph&metric=alert_status
+    :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_pyadigraph
+
+.. |sonar_maintainability| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_pyadigraph&metric=sqale_rating
+    :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_pyadigraph
+
+.. |sonar_coverage| image:: https://sonarcloud.io/api/project_badges/measure?project=LucaCappelletti94_pyadigraph&metric=coverage
+    :target: https://sonarcloud.io/dashboard/index/LucaCappelletti94_pyadigraph
+
+.. |code_climate_maintainability| image:: https://api.codeclimate.com/v1/badges/25fb7c6119e188dbd12c/maintainability
+   :target: https://codeclimate.com/github/LucaCappelletti94/pyadigraph/maintainability
+   :alt: Maintainability
+
+.. |pip| image:: https://badge.fury.io/py/pyadigraph.svg
+    :target: https://badge.fury.io/py/pyadigraph
